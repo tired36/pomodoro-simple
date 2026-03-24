@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+
+  <h1>🍅 pomodoro</h1>
+  <div id="modo">minutos</div>
+  <div id="tiempo">25:00</div>
+  <button id="iniciar">iniciar</button>
+
+  <script>
+    let minutos = 25;
+    let segundos = 0;
+
+    document.getElementById("btn").addEventListener("click", () => {
+      setInterval(() => {
+        segundos--;
+
+        if (segundos < 0) {
+          minutos--;
+          segundos = 59;
+        }
+
+        if (minutos == 0 && segundos == 0) {
+          alert("fin, disfruta de un descansito");
+          minutos = 5;
+        }
+
+        document.getElementById("tiempo").innerText = minutos + ":" + segundos;
+
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
